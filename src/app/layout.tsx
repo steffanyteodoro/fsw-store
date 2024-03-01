@@ -4,6 +4,7 @@ import "./globals.css";
 
 import Header from "@/components/ui/header";
 import { AuthProvider } from "@/providers/auth";
+import Footer from "@/components/ui/footer";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -20,10 +21,15 @@ export default function RootLayout({
   return (
     <html lang="pt-BR">
       <body className={inter.className}>
-      <AuthProvider>
-        <Header />
-        {children}
-      </AuthProvider>
+      <div className="flex h-full flex-col">
+        <AuthProvider>
+          <Header />
+          <div className="flex-1">
+            {children}
+          </div>
+        </AuthProvider>
+        <Footer />
+      </div>
       </body>
     </html>
   );
